@@ -1,0 +1,9 @@
+Mon Jan 23 15:55:31 PST 2017
+
+WIP - standup POC for async call 
+
+# Backlog:
+* add route for rendering a snap.svg graphic 
+  * use an async GET request from bitwrap eventstream
+  * render graphic using json as input
+
