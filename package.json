@@ -4,6 +4,7 @@
   "description": "render svg graphics using jsdom",
   "main": "./app.js",
   "scripts": {
+    "install": "browserify main.js -o bundle.js",
     "start": "node app.js",
     "budo": "node server.js"
   },
