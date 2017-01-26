@@ -1,9 +1,10 @@
-Mon Jan 23 15:55:31 PST 2017
+Wed Jan 25 21:33:20 PST 2017
 
-WIP - standup POC for async call 
+WIP - develop some sample widgets for bitwrap, counter, tic-tac-toe, petr-nets
 
 # Backlog:
-* add route for rendering a snap.svg graphic 
-  * use an async GET request from bitwrap eventstream
+
+* add a github page to render all templates as static files
   * render graphic using json as input
+  * add mocks for githubpages samples
 

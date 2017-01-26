@@ -5,7 +5,7 @@
   "main": "./app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "gulp test"
+    "budo": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/bitwrap/wrapserver#readme",
   "devDependencies": {
+    "budo": "^9.4.5",
     "pryjs": "^1.0.3"
   },
   "dependencies": {

@@ -2,14 +2,10 @@ var express = require('express');
 var app = express();
 var jsdom = require('jsdom');
 var request = require('request');
+var templates = require('./templates/index.js');
 
 var fs = require('fs');
 var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'utf-8');
-
-var templates = {
-  machine: require('./lib/machine.js'),
-  counter: require('./lib/counter.js')
-}
 
 function render(paper, req) {
   var tpl = templates[req.params.template];
