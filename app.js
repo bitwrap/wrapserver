@@ -56,6 +56,8 @@ app.get('/:template/:oid.svg', function (req, res) {
 
 })
 
+app.use('/', express.static(__dirname))
+
 app.listen(8000, function () {
     console.log('listening on port 8000')
 })

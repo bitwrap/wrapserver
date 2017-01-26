@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64"
+   height="64"
+   id="svg3883"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   viewBox="0 0 64 64"
+   sodipodi:docname="bw-logo3.svg">
+  <defs
+     id="defs3885">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#coin-gradient"
+       id="linearGradient3459"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.58359867,0,0,0.63866351,13.639405,11.33002)"
+       x1="0.0004394635"
+       y1="-0.00059563987"
+       x2="0.0004394635"
+       y2="63.996323" />
+    <linearGradient
+       id="coin-gradient"
+       x1="0.0004394635"
+       y1="-0.00059563987"
+       x2="0.0004394635"
+       y2="63.996323"
+       gradientTransform="scale(0.99994167,1.0000583)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         style="stop-color:#f9aa4b"
+         id="stop12" />
+      <stop
+         offset="100%"
+         style="stop-color:#f7931a"
+         id="stop14" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#coin-gradient"
+       id="linearGradient3952"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.4289549,0,0,0.7451038,-13.422377,7.9249099)"
+       x1="0.0004394635"
+       y1="-0.00059563987"
+       x2="0.0004394635"
+       y2="63.996323" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#coin-gradient"
+       id="linearGradient3952-3"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.42874217,0.01350764,0.02346307,0.74473429,77.186825,7.8368931)"
+       x1="0.0004394635"
+       y1="-0.00059563987"
+       x2="0.0004394635"
+       y2="63.996323" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.75"
+     inkscape:cx="44.967258"
+     inkscape:cy="48.206096"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3888">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       style="fill:url(#linearGradient3459)"
+       d="M 32.160156 11.330078 C 29.930288 11.348432 27.759299 11.816895 25.730469 12.65625 L 25.730469 23.482422 C 26.548824 22.096217 27.578671 21.071629 28.820312 20.40625 C 30.076064 19.727009 31.571164 19.386719 33.306641 19.386719 C 36.184992 19.386719 38.520585 20.510207 40.3125 22.755859 C 42.118524 25.001512 43.021484 27.953699 43.021484 31.613281 C 43.021484 35.272863 42.118524 38.225051 40.3125 40.470703 C 38.520585 42.716356 36.184992 43.839844 33.306641 43.839844 C 31.571164 43.839844 30.076064 43.507175 28.820312 42.841797 C 27.578671 42.162556 26.548824 41.128393 25.730469 39.742188 L 25.730469 43.236328 L 21.814453 43.236328 L 21.814453 14.898438 C 18.155911 17.623558 15.353542 21.755004 14.199219 26.824219 C 11.703606 37.77155 17.792625 48.860355 27.794922 51.589844 C 37.801305 54.319971 47.935242 47.656954 50.429688 36.708984 C 52.924134 25.760375 46.835877 14.670895 36.830078 11.941406 C 35.267037 11.514924 33.699911 11.317404 32.160156 11.330078 z M 32.353516 22.587891 C 30.293519 22.587891 28.671532 23.392002 27.486328 25 C 26.315234 26.594136 25.730469 28.799285 25.730469 31.613281 C 25.730469 34.427278 26.315234 36.638096 27.486328 38.246094 C 28.671532 39.84023 30.293519 40.636719 32.353516 40.636719 C 34.413512 40.636719 36.030078 39.84023 37.201172 38.246094 C 38.386375 36.638096 38.978516 34.427278 38.978516 31.613281 C 38.978516 28.799285 38.386375 26.594136 37.201172 25 C 36.030078 23.392002 34.413512 22.587891 32.353516 22.587891 z "
+       id="coin" />
+    <path
+       style="fill:url(#linearGradient3952);opacity:0.8"
+       d="M 3.4785156 8.578125 L 3.4785156 14.529297 A 5.7342238 5.0069509 0 0 1 6.0976562 18.726562 A 5.7342238 5.0069509 0 0 1 3.4785156 22.929688 L 3.4785156 26.634766 A 5.7342238 5.0069509 0 0 1 5.9160156 30.726562 A 5.7342238 5.0069509 0 0 1 3.4785156 34.816406 L 3.4785156 38.710938 A 5.7342238 5.0069509 0 0 1 6.0976562 42.908203 A 5.7342238 5.0069509 0 0 1 3.4785156 47.111328 L 3.4785156 54.955078 C 8.3032339 52.954012 12.336394 46.471269 13.619141 37.535156 C 13.764838 36.520078 13.8698 35.503898 13.9375 34.492188 L 13.9375 29.041016 C 13.30126 19.456463 9.330631 11.110005 3.6230469 8.6386719 C 3.5750772 8.6178942 3.5266108 8.5979688 3.4785156 8.578125 z "
+       id="coin-3-8" />
+    <ellipse
+       style="opacity:1;fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:1.79999995;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4183"
+       cx="12.727273"
+       cy="29.636364"
+       rx="4.7272725"
+       ry="6.181818" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:url(#linearGradient3952-3);opacity:0.8"
+       d="m 60.314883,9.0219876 0.187401,5.9482194 a 5.0069509,5.7342238 88.195477 0 0 -2.485672,4.27766 5.0069509,5.7342238 88.195477 0 0 2.750197,4.118565 l 0.116672,3.703241 a 5.0069509,5.7342238 88.195477 0 0 -2.307442,4.166523 5.0069509,5.7342238 88.195477 0 0 2.565079,4.01106 l 0.122637,3.8926 a 5.0069509,5.7342238 88.195477 0 0 -2.485671,4.27766 5.0069509,5.7342238 88.195477 0 0 2.750197,4.118564 l 0.246997,7.83986 C 56.88994,53.527795 52.65464,47.17527 51.091134,38.283982 50.913545,37.273996 50.776636,36.261625 50.677111,35.252548 L 50.505456,29.80408 c 0.33411,-9.599835 4.039943,-18.067188 9.666875,-20.7170242 0.04729,-0.02228 0.09511,-0.043717 0.142552,-0.065071 z"
+       id="coin-3-8-6" />
+  </g>
+</svg>
