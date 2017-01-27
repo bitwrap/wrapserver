@@ -7,6 +7,12 @@ var templates = require('./templates/index.js');
 var fs = require('fs');
 var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'utf-8');
 
+var backend = process.env.BITWRAP_PORT_8080_TCP_ADDR;
+
+if (! backend ) {
+  backend  = '127.0.0.1';
+}
+
 function render(paper, req) {
   var tpl = templates[req.params.template];
 
@@ -27,7 +33,7 @@ function abort(res) {
 
 app.get('/:template/:oid.svg', function (req, res) {
 
-  var uri = 'http://127.0.0.1:8080/' + req.params.template + '/' + req.params.oid + '.json';
+  var uri = 'http://' + backend + ':8080/' + req.params.template + '/' + req.params.oid + '.json';
 
   request(uri, function (error, response, body) {
     if (error || response.statusCode != 200) {
