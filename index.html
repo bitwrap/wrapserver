@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="bw-logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -41,10 +42,14 @@
 
       <div class="container col-xs-6">
         <h4> Counter <span class="label label-default">Browser</span> </h4>
-        <img src="counter/000000000.svg" alt="counter-000000000" >
+        <svg id="counter-svg" ></svg>
       </div>
 
       <script src="/bundle.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+        window.templates.counter(Snap('#counter-svg'), {});
+      </script>
     </app>
   </body>
 </html>

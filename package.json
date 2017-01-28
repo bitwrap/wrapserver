@@ -6,7 +6,7 @@
   "scripts": {
     "install": "browserify main.js -o bundle.js",
     "start": "node app.js",
-    "budo": "node server.js"
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",

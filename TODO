@@ -8,3 +8,14 @@ WIP - develop some sample widgets for bitwrap, counter, tic-tac-toe, petr-nets
   * render graphic using json as input
   * add mocks for githubpages samples
 
+
+NOTES:
+
+This project serves as middlware for aggregating and reporting on data from the eventstore
+
+FEATURES:
+
+* host widget code repository
+* serve as an NPM module to be bundled into the API
+* serve as SVG render & caching
+* Authenticate POSTs to rpc API / gateway for eventstore backend
