@@ -2,7 +2,7 @@
   "name": "wrapserver",
   "version": "0.0.1",
   "description": "render svg graphics using jsdom",
-  "main": "./app.js",
+  "main": "./templates/index.js",
   "scripts": {
     "install": "browserify main.js -o bundle.js",
     "start": "node app.js",
