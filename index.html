@@ -48,36 +48,21 @@
       <script src="/bundle.js" type="text/javascript"></script>
 
       <script type="text/javascript">
-        function widget(name, id, args={}) {
-          window.templates[name](window.Snap(id), args);
+        function widget(oid, name, id, req={}) {
+
+          window.$.getJSON("http://127.0.0.1:8080/head/" + name + "/" + oid + ".json", function ( data ) {
+
+            window.templates[name](window.Snap(id), {
+              "query": req['query'] || {},
+              "params": req,
+              "body": data
+            });
+
+          });
         }
 
-        // TODO: replace this w/ ajax call
-        testdata = {
-          "query": {},
-          "params": {},
-          "body": {
-            "event": {
-              "state": [
-                33
-              ],
-              "endpoint": "api.bitwrap.io",
-              "error": 0,
-              "action": "INC",
-              "ip": null,
-              "oid": "000000000",
-              "payload": {},
-              "previous": "fee1d84a8226f315"
-            },
-            "id": "cca8ffdb2ef048a9"
-          }
-        }
-
-        widget( 'counter', '#counter-svg', testdata );
-        widget( 'octothorpe', '#octothorpe-svg', testdata);
-
-        //render('counter', '#octothorpe-svg', { "state_data": { "P0": [ 99 ] }});
-        //window.templates.counter(Snap('#octothorpe-svg'), {});
+        widget('000000000', 'counter', '#counter-svg', {});
+        widget('000000000', 'octothorpe', '#octothorpe-svg', {});
       </script>
     </app>
   </body>
