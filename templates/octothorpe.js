@@ -1,21 +1,21 @@
 function render(paper, req) {
   //console.log(req);
-  var evt = req.body.event
 
   paper
-    .rect(10, 10, 120, 20, 5, 5)
+    .circle(100, 100, 50)
     .attr({
+      id: 'foo',
       fill: '#facade',
       stroke: '#000',
       strokeWidth: 2,
-      class: 'counter'
+      class: 'place'
     });
 
   paper
-    .text(18, 25, evt.oid + ' -> ' + evt.state)
+    .rect(90, 90, 20, 20, 3)
     .attr({
-       fill: req.query.color || 'blue',
-       stroke: 'black'
+       fill: req.query.color || 'red',
+       stroke: 'none'
     });
 }
 

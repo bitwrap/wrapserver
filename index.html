@@ -35,20 +35,49 @@
       <hr />
       <hr />
 
-      <div class="container col-xs-6">
-        <h4> Counter <span class="label label-default">Server</span> </h4>
-        <img src="counter/000000000.svg" alt="counter-000000000" >
+      <div class="col-md-3">
+        <h4> <span class="label label-default">Counter</span> </h4>
+        <svg id="counter-svg" ></svg>
       </div>
 
-      <div class="container col-xs-6">
-        <h4> Counter <span class="label label-default">Browser</span> </h4>
-        <svg id="counter-svg" ></svg>
+      <div class="col-md-3">
+        <h4> <span class="label label-default">Octothorpe</span> </h4>
+        <svg id="octothorpe-svg" ></svg>
       </div>
 
       <script src="/bundle.js" type="text/javascript"></script>
 
       <script type="text/javascript">
-        window.templates.counter(Snap('#counter-svg'), {});
+        function widget(name, id, args={}) {
+          window.templates[name](window.Snap(id), args);
+        }
+
+        // TODO: replace this w/ ajax call
+        testdata = {
+          "query": {},
+          "params": {},
+          "body": {
+            "event": {
+              "state": [
+                33
+              ],
+              "endpoint": "api.bitwrap.io",
+              "error": 0,
+              "action": "INC",
+              "ip": null,
+              "oid": "000000000",
+              "payload": {},
+              "previous": "fee1d84a8226f315"
+            },
+            "id": "cca8ffdb2ef048a9"
+          }
+        }
+
+        widget( 'counter', '#counter-svg', testdata );
+        widget( 'octothorpe', '#octothorpe-svg', testdata);
+
+        //render('counter', '#octothorpe-svg', { "state_data": { "P0": [ 99 ] }});
+        //window.templates.counter(Snap('#octothorpe-svg'), {});
       </script>
     </app>
   </body>
