@@ -49,23 +49,12 @@
 
       <script type="text/javascript">
         function widget(oid, name, id, req={}) {
+          var res = window.templates[name];
 
-          window.$.getJSON("http://127.0.0.1:8080/head/" + name + "/" + oid + ".json", function ( data ) {
+          //TODO: use config var for the base url
+          window.$.getJSON("http://127.0.0.1:8080" + res.resource(name, oid), function ( data ) {
 
-            window.templates[name](window.Snap(id), {
-              "query": req['query'] || {},
-              "params": req,
-              "body": data
-            });
-
-          });
-        }
-
-        function list_widget(oid, name, id, req={}) {
-
-          window.$.getJSON("http://127.0.0.1:8080/list/" + name + "/" + oid + ".json", function ( data ) {
-
-            window.templates[name](window.Snap(id), {
+            res.render(window.Snap(id), {
               "query": req['query'] || {},
               "params": req,
               "body": data
@@ -75,10 +64,7 @@
         }
 
         widget('000000000', 'counter', '#counter-svg', {});
-
-        // TODO: for octothorpe need access to event history
-        // to render complete picture
-        list_widget('000000000', 'octothorpe', '#octothorpe-svg', {});
+        widget('000000000', 'octothorpe', '#octothorpe-svg', {});
 
       </script>
     </app>

@@ -20,7 +20,7 @@ function render(paper, req) {
     return false
   }
 
-  return tpl(
+  return tpl.render(
     paper,
     { query: req.query, params: req.params, body: req.body }
   );
@@ -32,8 +32,9 @@ function abort(res) {
 }
 
 app.get('/:template/:oid.svg', function (req, res) {
+  var tpl = templates[req.params.template];
 
-  var uri = 'http://' + backend + ':8080/' + req.params.template + '/' + req.params.oid + '.json';
+  var uri = 'http://' + backend + ':8080' + tpl.resource(req.params.template, req.params.oid);
 
   request(uri, function (error, response, body) {
     if (error || response.statusCode != 200) {

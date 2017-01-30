@@ -77,22 +77,33 @@ function draw_board(paper, o) {
   }
 }
 
-function render(paper, req) {
+module.exports = { 
 
-  draw_board(paper);
+  'render' : function (paper, req) {
 
-  for (e of req.body.events) {
-    var x = parseInt(e.action[1]);
-    var y = parseInt(e.action[2]);
+    var events = req.body.events;
+    draw_board(paper);
 
-    if (e.action[0] == 'X') {
-      draw_x(paper, [x, y]);
-    } else {
-      draw_o(paper, [x, y]);
+   if ( events == undefined ) {
+     return
+   }
+
+    for (e of events) {
+      var x = parseInt(e.action[1]);
+      var y = parseInt(e.action[2]);
+
+      if (e.action[0] == 'X') {
+        draw_x(paper, [x, y]);
+      } else {
+        draw_o(paper, [x, y]);
+      }
+
     }
 
-  }
+  },
 
+  'resource': function (name, oid) {
+    return "/list/" + name + "/" + oid + ".json"
+  }
 }
 
-module.exports = render
