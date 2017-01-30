@@ -1,6 +1,6 @@
 function render(paper, req) {
   //console.log(req);
-  var evt = req.body.event
+  var evt = req.body.event || {};
 
   paper
     .rect(10, 10, 120, 20, 5, 5)
