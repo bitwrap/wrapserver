@@ -7,16 +7,21 @@ var fs = require('fs');
 var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'utf-8');
 
 var backend = process.env.BITWRAP_PORT_8080_TCP_ADDR;
+var endpoint = process.env.ENDPOINT;
 
 if (! backend ) {
   backend  = '127.0.0.1';
+}
+
+if (! endpoint ) {
+  endpoint  = 'http://127.0.0.1:8080';
 }
 
 function render(paper, req) {
   var tpl = templates[req.params.template];
 
   if (! tpl) {
-    return false
+    return false;
   }
 
   return tpl.render(
@@ -33,6 +38,18 @@ function abort(res) {
 function add_cors(res, path, stat) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 }
+
+app.get('/config/:stage.json', function (req, res) {
+  add_cors(res);
+  res.writeHead(200, {'Content-Type': 'application/json' });
+  cfg = {
+    'endpoint': endpoint,
+    'wrapserver': '',
+    'stage': req.params.stage
+  };
+
+  res.end(JSON.stringify(cfg), 'utf-8');
+})
 
 app.get('/:template/:oid.svg', function (req, res) {
   var tpl = templates[req.params.template];

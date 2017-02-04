@@ -13,25 +13,21 @@
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#"><img src="logo.svg" height=40 style=" margin-top: -11px;" ></a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#">SVG Gallery</a></li>
-        </ul>
-      </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="logo.svg" height=40 style=" margin-top: -11px;" ></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">SVG Gallery</a></li>
+      </ul>
     </div>
   </nav>
     <app>
     <div id="app-layout"><!-- inject svg --></div>
-      <!-- <img src="http://127.0.0.1:8000/counter/000000000.svg" alt="counter-000000000" > -->
-
       <hr />
       <hr />
 
@@ -51,8 +47,7 @@
         function widget(oid, name, id, req={}) {
           var res = window.templates[name];
 
-          //TODO: use config var for the base url
-          window.$.getJSON("http://127.0.0.1:8080" + res.resource(name, oid), function ( data ) {
+          window.$.getJSON(window.App.config.endpoint + res.resource(name, oid), function ( data ) {
 
             res.render(window.Snap(id), {
               "query": req['query'] || {},
@@ -63,8 +58,14 @@
           });
         }
 
-        widget('000000000', 'counter', '#counter-svg', {});
-        widget('000000000', 'octothorpe', '#octothorpe-svg', {});
+        window.$.getJSON("/config/default.json", function ( data ) {
+
+          window.App = { 'config': data };
+
+          widget('000000000', 'counter', '#counter-svg', {});
+          widget('000000000', 'octothorpe', '#octothorpe-svg', {});
+
+        });
 
       </script>
     </app>
