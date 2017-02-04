@@ -94,7 +94,9 @@ module.exports = {
 
       if (e.action[0] == 'X') {
         draw_x(paper, [x, y]);
-      } else {
+      }
+
+      if (e.action[0] == 'O') {
         draw_o(paper, [x, y]);
       }
 
