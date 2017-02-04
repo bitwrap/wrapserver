@@ -3,7 +3,6 @@ var app = express();
 var jsdom = require('jsdom');
 var request = require('request');
 var templates = require('./templates/index.js');
-
 var fs = require('fs');
 var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'utf-8');
 
@@ -31,12 +30,18 @@ function abort(res) {
   res.end('', 'utf-8');
 }
 
+function add_cors(res, path, stat) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+}
+
 app.get('/:template/:oid.svg', function (req, res) {
   var tpl = templates[req.params.template];
 
   var uri = 'http://' + backend + ':8080' + tpl.resource(req.params.template, req.params.oid);
 
   request(uri, function (error, response, body) {
+    add_cors(res);
+
     if (error || response.statusCode != 200) {
       abort(res);
     } else {
@@ -63,7 +68,7 @@ app.get('/:template/:oid.svg', function (req, res) {
 
 })
 
-app.use('/', express.static(__dirname))
+app.use('/', express.static(__dirname, { 'setHeaders': add_cors }))
 
 app.listen(8000, function () {
     console.log('listening on port 8000')
