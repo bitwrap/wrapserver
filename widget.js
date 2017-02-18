@@ -1,52 +1,57 @@
 var jsdom = require('jsdom');
 var fs = require('fs');
 var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'utf-8');
-var apig = require('aws-api-gateway-client')
-
-var templates = require('./templates/index.js');
+var request = require('request');
 
 var config = {
-  'invokeUrl': process.env.APIENDPOINT,
-  'apiKey': process.env.APIKEY
+  invokeUrl: process.env.APIENDPOINT,
+  apiKey: process.env.APIKEY
 }
 
-var client = apig.newClient(config)
+var client = require('aws-api-gateway-client').newClient(config)
+var templates = require('./templates/index.js');
 
-function abort(res) {
-  res.writeHead(404, {'Content-Type': 'image/svg+xml' });
-  res.end('', 'utf-8');
-}
+function draw (req, res, paper) {
 
-function _render (paper, req) {
   var tpl = templates[req.params.template];
-  if (! tpl) {
-    return false;
+  if (! tpl) { return false; }
+
+  console.log(req.params);
+
+  options = {
+    url: tpl.resource(config.invokeUrl, req.params),
+    headers: {
+      'Authorization': config.apiKey
+    }
   }
 
-  req.body = {} // TODO: get upstream data
+  function callback(error, response, body) {
+    result = JSON.parse(body)
 
-  return tpl.render(
-    paper,
-    { query: req.query, params: req.params, body: req.body }
-  );
+    if (error || response.statusCode != 200) {
+      console.log('__API_FAIL__');
+      res.writeHead(404, {'Content-Type': 'image/svg+xml' });
+      res.end('', 'utf-8');
+    } else {
+      tpl.render( paper, { query: req.query, params: req.params, body: result });
+      res.writeHead(200, {'Content-Type': 'image/svg+xml' });
+      res.end(paper.toString(), 'utf-8');
+    }
+  }
+
+  request(options, callback)
 }
 
 function render(req, res) {
+
   jsdom.env( '', // empty body
     [], // no external scripts 
     { src: [ snap_src ] },
     function (err, window) {
       var paper = new window.Snap();
-
-      if (false !== _render(paper, req)) {
-        res.writeHead(200, {'Content-Type': 'image/svg+xml' });
-        res.end(paper.toString(), 'utf-8');
-      } else {
-        abort(res);
-      }
-
+      draw(req, res, paper);
       window.close();
   });
 }
 
-module.exports = { "handler": render }
+module.exports = { "handler": render, "api": client }

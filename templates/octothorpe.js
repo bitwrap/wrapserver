@@ -104,6 +104,8 @@ module.exports = {
 
   },
 
-  'resource': '/list/{schema}/{oid}'
+  'resource': function (base_uri, params) {
+    return base_uri + '/stream/' + params.template + '/' + params.oid
+  }
 }
 

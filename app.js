@@ -7,7 +7,6 @@ function add_cors(res, path, stat) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 }
 
-// REVIEW: should we keep this?
 app.get('/config/:stage.json', function (req, res) {
   widget.handler(req, res)
   cfg = {
@@ -20,7 +19,6 @@ app.get('/config/:stage.json', function (req, res) {
 
 app.get('/:template/:oid.svg', function (req, res) {
   add_cors(res);
-  res.writeHead(200, {'Content-Type': 'application/json' });
   widget.handler(req, res)
 })
 

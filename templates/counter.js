@@ -2,7 +2,8 @@ module.exports = {
 
   'render' : function (paper, req) {
     //console.log(req);
-    var evt = req.body.event || {};
+    // KLUDGE: calling wrong resource currently
+    var evt = req.body.event || req.body.events[0] || {}
 
     paper
       .rect(10, 10, 120, 20, 5, 5)
@@ -21,6 +22,8 @@ module.exports = {
       });
   },
 
-  'resource': '/head/{schema}/{oid}'
+  'resource': function (base_uri, params) {
+    return base_uri + '/head/' + params.template + '/' + params.oid
+  }
 }
 
