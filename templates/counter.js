@@ -21,8 +21,6 @@ module.exports = {
       });
   },
 
-  'resource': function (name, oid) {
-    return "/head/" + name + "/" + oid + ".json"
-  }
+  'resource': '/head/{schema}/{oid}'
 }
 

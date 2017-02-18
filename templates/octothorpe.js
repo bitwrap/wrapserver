@@ -104,8 +104,6 @@ module.exports = {
 
   },
 
-  'resource': function (name, oid) {
-    return "/list/" + name + "/" + oid + ".json"
-  }
+  'resource': '/list/{schema}/{oid}'
 }
 
