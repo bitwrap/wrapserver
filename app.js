@@ -8,13 +8,15 @@ function add_cors(res, path, stat) {
 }
 
 app.get('/config/:stage.json', function (req, res) {
-  widget.handler(req, res)
+  add_cors(res);
+  res.writeHead(200, {'Content-Type': 'application/json' });
   cfg = {
     'endpoint': endpoint,
     'wrapserver': '',
     'stage': req.params.stage
   };
 
+  res.end(JSON.stringify(cfg), 'utf-8');
 })
 
 app.get('/:template/:oid.svg', function (req, res) {

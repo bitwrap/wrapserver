@@ -1,13 +1,12 @@
-Wed Jan 25 21:33:20 PST 2017
+Sat Feb 18 15:03:33 PST 2017
 
-WIP
-* develop octothorpe widget
-  * should render a frame or svg object for each event
-  * use Snap's import to reference old frames
-    * do we need an event-list feature?
+WIP testing w/ amazon gateway api as backend
 
 # Backlog:
 
+* more SVG enhancements
+  * should render a frame or svg object for each event
+  * use Snap's import to reference old frames
 * add a github page to render all templates as static files
   * render graphic using json as input
   * add mocks for githubpages samples
