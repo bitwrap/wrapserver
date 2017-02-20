@@ -1,8 +1,8 @@
 module.exports = { 
 
   'render' : function (paper, req) {
-    //console.log(req);
-    // KLUDGE: calling wrong resource currently
+
+    // KLUDGE: fallback to list if it is given instead of single event
     var evt = req.body.event || req.body.events[0] || {}
 
     paper
