@@ -25,6 +25,9 @@
   },
   "homepage": "https://github.com/bitwrap/wrapserver#readme",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.1",
+    "gulp-s3-upload": "^1.5.2",
     "budo": "^9.4.5",
     "pryjs": "^1.0.3"
   },
