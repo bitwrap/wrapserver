@@ -29,10 +29,15 @@
     "pryjs": "^1.0.3"
   },
   "dependencies": {
-    "aws-api-gateway-client": "^0.1.12",
     "express": "^4.14.0",
     "jsdom": "^8.4.0",
     "request": "^2.79.0",
+    "snapsvg": "^0.4.0"
+    "bootstrap-sass": "^3.3.6",
+    "browserify": "^13.0.0",
+    "browserify-handlebars": "^1.0.0",
+    "coffeeify": "^2.0.1",
+    "handlebars": "^4.0.5",
     "snapsvg": "^0.4.0"
   }
 }
