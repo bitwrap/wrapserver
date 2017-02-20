@@ -5,6 +5,7 @@
   "main": "./templates/index.js",
   "scripts": {
     "install": "browserify main.js -o bundle.js",
+    "upload": "gulp upload",
     "start": "node app.js",
     "dev": "node server.js"
   },
