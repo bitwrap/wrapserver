@@ -1,4 +1,4 @@
-var size = 20;
+var size = 40;
 
 function draw_x(paper, coords) {
   var factor = size
@@ -13,7 +13,7 @@ function draw_x(paper, coords) {
       x          , y + size,
       x + size   , y 
     ).attr({
-        'id': 'P' + coords[0] + coords[1],
+        'id': 'PIECE-' + coords[0] + coords[1],
         'class': 'EX',
         'fill-opacity': '0',
         'stroke': '#000',
@@ -31,7 +31,7 @@ function draw_o(paper, coords) {
       'cy': y,
       'r': (size/2)
     }).attr({
-        'id': 'P' + coords[0] + coords[1],
+        'id': 'PIECE-' + coords[0] + coords[1],
         'class': 'OH',
         'fill-opacity': '0',
         'stroke': '#000',
@@ -66,6 +66,7 @@ function draw_board(paper, o) {
     for ( y0 in [0, 1, 2] ) {
 
       draw_place(paper, {
+        "id": 'MOVE-' + x0 + y0,
         "x": x0 * factor,
         "y": y0 * factor,
         "width": factor,
@@ -84,9 +85,9 @@ module.exports = {
     var events = req.body.events;
     draw_board(paper);
 
-   if ( events == undefined ) {
-     return
-   }
+    if ( events == undefined ) {
+      return
+    }
 
     for (e of events) {
       var x = parseInt(e.action[1]);
@@ -108,4 +109,3 @@ module.exports = {
     return base_uri + '/stream/' + params.template + '/' + params.oid
   }
 }
-

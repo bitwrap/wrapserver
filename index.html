@@ -45,9 +45,10 @@
 
       <script type="text/javascript">
         function widget(oid, name, id, req={}) {
-          var res = window.templates[name];
+            var res = window.templates[name];
+            var res_uri = res.resource(window.App.config.endpoint, { 'template': name, 'oid': oid});
 
-          window.$.getJSON(window.App.config.endpoint + res.resource(name, oid), function ( data ) {
+            window.$.getJSON(res_uri, function (data) {
 
             res.render(window.Snap(id), {
               "query": req['query'] || {},
