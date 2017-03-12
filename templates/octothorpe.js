@@ -62,11 +62,11 @@ function draw_place(paper, o) {
 function draw_board(paper, o) {
   var factor = size * 2
 
-  for ( x0 in [0, 1, 2] ) {
-    for ( y0 in [0, 1, 2] ) {
+  for ( y0 in [0, 1, 2] ) {
+    for ( x0 in [0, 1, 2] ) {
 
       draw_place(paper, {
-        "id": 'MOVE-' + x0 + y0,
+        "id": 'MOVE-' + y0 + x0,
         "x": x0 * factor,
         "y": y0 * factor,
         "width": factor,
