@@ -4,19 +4,32 @@ var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'u
 var request = require('request');
 
 var config = {
-  invokeUrl: process.env.APIENDPOINT,
+  invokeUrl: process.env.ENDPOINT,
   apiKey: process.env.APIKEY
 }
 
-var client = require('aws-api-gateway-client').newClient(config)
 var templates = require('./templates/index.js');
 
+function _error(res, msg) {
+  console.log('__API_FAIL__');
+  res.writeHead(404, {'Content-Type': 'text' });
+  res.end(msg, 'utf-8');
+  return false
+}
+
+function _success(res, body) {
+  res.writeHead(200, {'Content-Type': 'image/svg+xml' });
+  res.end(body, 'utf-8');
+  return true
+}
+
 function draw (req, res, paper) {
-
   var tpl = templates[req.params.template];
-  if (! tpl) { return false; }
 
-  console.log(req.params);
+  if (! tpl) {
+    console.log('TEMPLATE_UNDEFINED:' + tpl);
+    return _error(res, 'TEMPLATE_UNDEFINED')
+  }
 
   options = {
     url: tpl.resource(config.invokeUrl, req.params),
@@ -25,21 +38,26 @@ function draw (req, res, paper) {
     }
   }
 
-  function callback(error, response, body) {
-    result = JSON.parse(body)
+  function _callback(error, response, body) {
+    var result = undefined;
 
     if (error || response.statusCode != 200) {
-      console.log('__API_FAIL__');
-      res.writeHead(404, {'Content-Type': 'image/svg+xml' });
-      res.end('', 'utf-8');
-    } else {
-      tpl.render( paper, { query: req.query, params: req.params, body: result });
-      res.writeHead(200, {'Content-Type': 'image/svg+xml' });
-      res.end(paper.toString(), 'utf-8');
+      return _error(res, 'PROXY_FAIL')
+    } 
+
+    try {
+      result = JSON.parse(body);
     }
+    catch (err) {
+      console.log(body)
+      return _error(res, 'JSON_PARSE_ERROR')
+    }
+
+    tpl.render( paper, result );
+    return _success(res, paper.toString())
   }
 
-  request(options, callback)
+  request(options, _callback);
 }
 
 function render(req, res) {
@@ -54,4 +72,4 @@ function render(req, res) {
   });
 }
 
-module.exports = { "handler": render, "api": client }
+module.exports = { "handler": render }

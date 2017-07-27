@@ -34,3 +34,4 @@ node_modules
 
 # don't commit builds
 bundle.js
+*.env

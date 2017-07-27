@@ -1,12 +1,14 @@
-Mon Feb 20 11:55:33 PST 2017
+Wed Jul 26 23:52:25 CDT 2017
 
-WIP - integerate w/ bitwrap-console
+BACKLOG
+=======
 
-# Backlog:
-
-* more SVG enhancements
+* improve svg rendering
   * should render a frame or svg object for each event
-  * use Snap's import to reference old frames
-* add a github page to render all templates as static files
+
+ICEBOX
+======
+* use Snap's import to reference old frames ??
+* documentation - add a githubpages site to render all templates as static files
   * render graphic using json as input
   * add mocks for githubpages samples

@@ -12,7 +12,6 @@ app.get('/config/:stage.json', function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json' });
   cfg = {
     'endpoint': endpoint,
-    'wrapserver': '',
     'stage': req.params.stage
   };
 
@@ -27,5 +26,5 @@ app.get('/:template/:oid.svg', function (req, res) {
 app.use('/', express.static(__dirname, { 'setHeaders': add_cors }))
 
 app.listen(8000, function () {
-    console.log('listening on port 8000')
+    console.log('listening on http://127.0.0.1:8000')
 })

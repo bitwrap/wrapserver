@@ -1,6 +1,6 @@
 var size = 40;
 
-function draw_x(paper, coords) {
+function draw_x(paper, coords, seq) {
   var factor = size
   var x = coords[1] * size * 2 + size/2;
   var y = coords[0] * size * 2 + size/2;
@@ -13,7 +13,7 @@ function draw_x(paper, coords) {
       x          , y + size,
       x + size   , y 
     ).attr({
-        'id': 'PIECE-' + coords[0] + coords[1],
+        'id': 'event-' + seq,
         'class': 'EX',
         'fill-opacity': '0',
         'stroke': '#000',
@@ -21,7 +21,7 @@ function draw_x(paper, coords) {
     });
 }
 
-function draw_o(paper, coords) {
+function draw_o(paper, coords, seq) {
   var x = coords[1] * size * 2 + size;
   var y = coords[0] * size * 2 + size;
 
@@ -31,7 +31,7 @@ function draw_o(paper, coords) {
       'cy': y,
       'r': (size/2)
     }).attr({
-        'id': 'PIECE-' + coords[0] + coords[1],
+        'id': 'event-' + seq,
         'class': 'OH',
         'fill-opacity': '0',
         'stroke': '#000',
@@ -66,7 +66,7 @@ function draw_board(paper, o) {
     for ( x0 in [0, 1, 2] ) {
 
       draw_place(paper, {
-        "id": 'MOVE-' + y0 + x0,
+        "id": 'square-' + y0 + x0,
         "x": x0 * factor,
         "y": y0 * factor,
         "width": factor,
@@ -80,9 +80,8 @@ function draw_board(paper, o) {
 
 module.exports = { 
 
-  'render' : function (paper, req) {
+  'render' : function (paper, events) {
 
-    var events = req.body.events;
     draw_board(paper);
 
     if ( events == undefined ) {
@@ -94,11 +93,11 @@ module.exports = {
       var y = parseInt(e.action[2]);
 
       if (e.action[0] == 'X') {
-        draw_x(paper, [x, y]);
+        draw_x(paper, [x, y], e.seq - 1);
       }
 
       if (e.action[0] == 'O') {
-        draw_o(paper, [x, y]);
+        draw_o(paper, [x, y], e.seq - 1);
       }
 
     }
