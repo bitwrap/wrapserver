@@ -14,7 +14,7 @@ function draw_x(paper, coords, seq) {
       x + size   , y 
     ).attr({
         'id': 'event-' + seq,
-        'class': 'EX',
+        'class': 'X',
         'fill-opacity': '0',
         'stroke': '#000',
         'strokeWidth': 5
@@ -32,7 +32,7 @@ function draw_o(paper, coords, seq) {
       'r': (size/2)
     }).attr({
         'id': 'event-' + seq,
-        'class': 'OH',
+        'class': 'O',
         'fill-opacity': '0',
         'stroke': '#000',
         'strokeWidth': 5
