@@ -1,14 +1,16 @@
 language: node_js
 node_js:
-  - "4"
-before_script:
-  - npm set production
+- '4'
+before_install:
+- npm set production
+script:
+- du -csh ./node_modules
 deploy:
   provider: lambda
   function_name: wrapserver-dev
   role: arn:aws:iam::639065871029:role/jsonrpc-gateway
-  runtime: 'nodejs4.3'
+  runtime: nodejs4.3
   handler_name: lambda.handler
-  access_key_id: AKIAJPVSZULP5SJZWSPA
+  access_key_id: AKIAJPPJ3ATTMIBXETWQ
   secret_access_key:
-    secure: Q1ascGANefmIXlaVeJmv+m/mN6AukvBNu+QLT1S9bDUakQlzSsRgPdRJe24FnoJHhXLnK/o+g33DABzHQAvH9R0ImWQvNOLkExJ2oG21Fxosb0jwH116LkZ+qHJGxKEZFlub8qDHRExOEiJUnt/rIvAO0opLqKlijZ+F3yThrbreKiPNKWTCuctNdF8zWy/AasfOhS9voYsTk4foijzHfgTev8WCagNLxOcdtRB6Sz7qCbXmu72JLmAHs3qaWJn1zx1WGiMeyvshjP72y83IlWYxOpnJcJ6RRU5KmFmoLJa2bUGlmdFnimfBTsrMVRl5Di8W1tBwX0MhLgZyyZs+EIKzIThrZZY2DaotyLeH+C2c99ckWEN9Y8MNnxu0cGTBDyX3lYefD5xSCJo4YmNhwlDBDgCall2axJOqFHxaz4jaEepGFjG1myTkQ8AgcZp/LcOCPDbPGSTe8W0sHadwBo3PoMHokirZoJs5lgaovQ+LzItfg23FH7NVicbOwfxeWqCQOCYBKEcciMxqsQkbtPqzo90eYLSPw/2/A4g4j4XzovF8HsWsSDfAwazhBLeFl28UD3Pj/pu35f58I/Or2ZNJ3JWnMLzi96Z2hokBNefxt6oxFlW8Td8lHV+4imilP/te9XvBtpt/yiIvnhzojDfo8Cozfzs2nQYzszNMu+c=
+    secure: BqA46cSYrjsrMM7f3q15Gn2qxzLt1tjwvv0mCsJkwqHeo+zFY2h8biHeGDH75XnkmqTueiIVxGyO/V/abezUi0q6IKdmyuOkKYrKaS2i6G4mCGr+6ntcLX514fcGJbBQYTXzqXbTkSoOl6jYLWd70Mm1yUYf+kQdLhGkcFV1azNg8yS0GcwtRDzkmIOdug9YHBclNUVbzGKXrRWD5MHAFP+p/lll4GuegtIrIdN+8XF/YYkNqieIucE091wrunyfPGYrWDi+uBTExUe0I8NVciHE8XgoX8RzG9WkSY6mabs7pDffoRAuhtyFQWfgOHFEdlSSclgkOrHoEGptS+u1SHa4P0VYKXcJVfpdcJKlss4RDesffsopXf4kdRG/s6qCGFIZ1UI28f1JIacXxwc+TM+hLQ6NJBmVwAfyLS6e0CNm/FjFUPf/d5CYZVVpOeg95/1dO+ZRMyCu/AuygZBV2OSJPaPMts5VREhYznSduoQ33Rmzw5S+EGRuDCF03Ta1Bu1buPDzKICfT+5TdLuOAhipp75RkVtm83mknizsuqxJNiDU3QRXMsA0yfGqWXuAkdeXyo8vbpOmwrsa4yrbOfUqaEBmYtdXp/Ui++IPVcpWn6gY3wdEK6YWcRvwSBMx0/UWKPymVCKb1fCIE+D/VaKDiFsBuMzqG3ZdzltKhR4=
