@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "4"
+deploy:
+  provider: lambda
+  function_name: wrapserver-dev
+  role: arn:aws:iam::639065871029:role/jsonrpc-gateway
+  runtime: 'nodejs4.3'
+  handler_name: handler
+  access_key_id: AKIAJPVSZULP5SJZWSPA
+  secret_access_key:
+    secure: Q1ascGANefmIXlaVeJmv+m/mN6AukvBNu+QLT1S9bDUakQlzSsRgPdRJe24FnoJHhXLnK/o+g33DABzHQAvH9R0ImWQvNOLkExJ2oG21Fxosb0jwH116LkZ+qHJGxKEZFlub8qDHRExOEiJUnt/rIvAO0opLqKlijZ+F3yThrbreKiPNKWTCuctNdF8zWy/AasfOhS9voYsTk4foijzHfgTev8WCagNLxOcdtRB6Sz7qCbXmu72JLmAHs3qaWJn1zx1WGiMeyvshjP72y83IlWYxOpnJcJ6RRU5KmFmoLJa2bUGlmdFnimfBTsrMVRl5Di8W1tBwX0MhLgZyyZs+EIKzIThrZZY2DaotyLeH+C2c99ckWEN9Y8MNnxu0cGTBDyX3lYefD5xSCJo4YmNhwlDBDgCall2axJOqFHxaz4jaEepGFjG1myTkQ8AgcZp/LcOCPDbPGSTe8W0sHadwBo3PoMHokirZoJs5lgaovQ+LzItfg23FH7NVicbOwfxeWqCQOCYBKEcciMxqsQkbtPqzo90eYLSPw/2/A4g4j4XzovF8HsWsSDfAwazhBLeFl28UD3Pj/pu35f58I/Or2ZNJ3JWnMLzi96Z2hokBNefxt6oxFlW8Td8lHV+4imilP/te9XvBtpt/yiIvnhzojDfo8Cozfzs2nQYzszNMu+c=
