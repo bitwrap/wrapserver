@@ -2,16 +2,17 @@ var widget = require('./widget.js')
 var endpoint = process.env.ENDPOINT;
 
 exports.handler = (event, context, callback) => {
-    var svgdata;
 
     var req = {
-        // TODO: actually use the event data
-        'params':  { 'template': 'octoe', 'oid': '000000000' }
+        'params':  {
+            'template': event.pathParameters.template,
+            'oid': event.pathParameters.oid.replace(/\.svg$/, '')
+        }
     }
 
     var res = {
         'writeHead': (status, headers) => {
-            //pass
+            //pass use by express only
         },
         'end': (data, encoding) => {
 
@@ -27,12 +28,15 @@ exports.handler = (event, context, callback) => {
         }
     }
 
-
     widget.handler(req, res);
 }
 
+// invoke the test function
 exports.test = () => {
-  exports.handler({}, {}, (_, data) => {
+  var evt = { 'pathParameters': { 'template': 'octoe', 'oid': '000000000.svg' }}
+  var ctx = {}
+
+  exports.handler(evt, ctx, (_, data) => {
       console.log(data)
     }
   )

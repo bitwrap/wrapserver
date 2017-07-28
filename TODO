@@ -1,18 +1,6 @@
-Thu Jul 27 00:27:03 CDT 2017
+Thu Jul 27 22:58:25 CDT 2017
 
-WIP - adding AWS-lambda handler
+* replace hardcoded credentials in index.handler
 
 BACKLOG
 =======
-
-* integration testing
-
-
-ICEBOX
-======
-* use Snap's import to reference old frames ??
-* should render a new frame or svg object for each event
-  * currently object are named 'event-#'
-* documentation - add a githubpages site to render all templates as static files
-  * render graphic using json as input
-  * add mocks for githubpages samples

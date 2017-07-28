@@ -11,7 +11,7 @@ deploy:
   function_name: wrapserver-dev
   role: arn:aws:iam::639065871029:role/jsonrpc-gateway
   runtime: nodejs4.3
-  handler_name: handler
+  handler_name: index.handler
   access_key_id: AKIAJPPJ3ATTMIBXETWQ
   secret_access_key:
     secure: BqA46cSYrjsrMM7f3q15Gn2qxzLt1tjwvv0mCsJkwqHeo+zFY2h8biHeGDH75XnkmqTueiIVxGyO/V/abezUi0q6IKdmyuOkKYrKaS2i6G4mCGr+6ntcLX514fcGJbBQYTXzqXbTkSoOl6jYLWd70Mm1yUYf+kQdLhGkcFV1azNg8yS0GcwtRDzkmIOdug9YHBclNUVbzGKXrRWD5MHAFP+p/lll4GuegtIrIdN+8XF/YYkNqieIucE091wrunyfPGYrWDi+uBTExUe0I8NVciHE8XgoX8RzG9WkSY6mabs7pDffoRAuhtyFQWfgOHFEdlSSclgkOrHoEGptS+u1SHa4P0VYKXcJVfpdcJKlss4RDesffsopXf4kdRG/s6qCGFIZ1UI28f1JIacXxwc+TM+hLQ6NJBmVwAfyLS6e0CNm/FjFUPf/d5CYZVVpOeg95/1dO+ZRMyCu/AuygZBV2OSJPaPMts5VREhYznSduoQ33Rmzw5S+EGRuDCF03Ta1Bu1buPDzKICfT+5TdLuOAhipp75RkVtm83mknizsuqxJNiDU3QRXMsA0yfGqWXuAkdeXyo8vbpOmwrsa4yrbOfUqaEBmYtdXp/Ui++IPVcpWn6gY3wdEK6YWcRvwSBMx0/UWKPymVCKb1fCIE+D/VaKDiFsBuMzqG3ZdzltKhR4=
