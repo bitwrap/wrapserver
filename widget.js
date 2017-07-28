@@ -70,6 +70,8 @@ function render(req, res) {
       draw(req, res, paper);
       window.close();
   });
+
+  return res
 }
 
 module.exports = { "handler": render }
