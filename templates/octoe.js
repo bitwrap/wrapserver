@@ -82,6 +82,7 @@ module.exports = {
 
   'render' : function (paper, events) {
 
+    paper.attr({'width': '245', 'height': '245'})
     draw_board(paper);
 
     if ( events == undefined ) {
