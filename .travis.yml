@@ -8,7 +8,7 @@ script:
 - node -e "require('./index').test()"
 deploy:
   provider: lambda
-  function_name: wrapserver-dev
+  function_name: wrapserver-test
   role: arn:aws:iam::639065871029:role/jsonrpc-gateway
   runtime: nodejs4.3
   handler_name: handler
