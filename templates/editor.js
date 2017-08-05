@@ -21,7 +21,6 @@ function draw_grid_point(paper, o) {
   // TODO add selector point for 'snapping' PNML element placement
 }
 
-
 function draw_menu(paper, o) {
   var factor = size * 2;
   var y0 = 5;
@@ -56,10 +55,10 @@ function draw_menu(paper, o) {
 
 module.exports = { 
   'render' : function (w, callback) {
-    w.paper.attr({'width': '1200', 'height': '800'})
-    draw_menu(w.paper, {})
+    w.paper.attr({'width': '1200', 'height': '800'});
+    draw_menu(w.paper, {});
 
-    if ( w.data && callback) { callback(w.data) }
+    if ( w.data && callback) { callback(w) };
   },
 
   'resource': function (base_uri, params) {

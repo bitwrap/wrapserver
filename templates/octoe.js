@@ -80,28 +80,30 @@ function draw_board(paper) {
 
 module.exports = { 
 
-  'render' : function (widget, callback) {
+  'render' : function (w, callback) {
 
-    widget.paper.attr({'width': '245', 'height': '245'});
-    draw_board(widget.paper);
+    w.paper.attr({'width': '245', 'height': '245'});
+    draw_board(w.paper);
 
-    if ( widget.data == undefined ) {
+    if ( w.data == undefined ) {
       return
     }
 
-    for (e of widget.data) {
+    for (e of w.data) {
       var x = parseInt(e.action[1]);
       var y = parseInt(e.action[2]);
 
       if (e.action[0] == 'X') {
-        draw_x(widget.paper, [x, y], e.seq - 1);
+        draw_x(w.paper, [x, y], e.seq - 1);
       }
 
       if (e.action[0] == 'O') {
-        draw_o(widget.paper, [x, y], e.seq - 1);
+        draw_o(w.paper, [x, y], e.seq - 1);
       }
 
     }
+
+    if (callback) { callback(w) }
 
   },
 
