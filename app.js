@@ -18,12 +18,13 @@ app.get('/config/:stage.json', function (req, res) {
   res.end(JSON.stringify(cfg), 'utf-8');
 })
 
+app.use('/', express.static(__dirname, { 'setHeaders': add_cors }))
+
 app.get('/:template/:oid.svg', function (req, res) {
   add_cors(res);
   widget.handler(req, res)
 })
 
-app.use('/', express.static(__dirname, { 'setHeaders': add_cors }))
 
 app.listen(8000, function () {
     console.log('listening on http://127.0.0.1:8000')

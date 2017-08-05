@@ -1,6 +1,13 @@
-Thu Jul 27 22:58:25 CDT 2017
+Sat Aug  5 04:23:46 CDT 2017
 
-* replace hardcoded credentials in index.handler
+WIP - build bitwrap-editor template
+required to be able to use from express & browserify
+
 
 BACKLOG
 =======
+* Add more docs about how this library is used
+  * as a NPM module - for bitwrap-ui app to use templates
+  * for server-side SVG rendering
+    *  on aws-lambda
+    * with docker

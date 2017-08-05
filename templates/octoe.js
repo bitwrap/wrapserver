@@ -59,7 +59,7 @@ function draw_place(paper, o) {
     });
 }
 
-function draw_board(paper, o) {
+function draw_board(paper) {
   var factor = size * 2
 
   for ( y0 in [0, 1, 2] ) {
@@ -80,25 +80,25 @@ function draw_board(paper, o) {
 
 module.exports = { 
 
-  'render' : function (paper, events) {
+  'render' : function (widget, callback) {
 
-    paper.attr({'width': '245', 'height': '245'})
-    draw_board(paper);
+    widget.paper.attr({'width': '245', 'height': '245'});
+    draw_board(widget.paper);
 
-    if ( events == undefined ) {
+    if ( widget.data == undefined ) {
       return
     }
 
-    for (e of events) {
+    for (e of widget.data) {
       var x = parseInt(e.action[1]);
       var y = parseInt(e.action[2]);
 
       if (e.action[0] == 'X') {
-        draw_x(paper, [x, y], e.seq - 1);
+        draw_x(widget.paper, [x, y], e.seq - 1);
       }
 
       if (e.action[0] == 'O') {
-        draw_o(paper, [x, y], e.seq - 1);
+        draw_o(widget.paper, [x, y], e.seq - 1);
       }
 
     }

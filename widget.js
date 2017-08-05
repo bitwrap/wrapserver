@@ -4,8 +4,9 @@ var snap_src = fs.readFileSync('./node_modules/snapsvg/dist/snap.svg-min.js', 'u
 var request = require('request');
 
 var config = {
-  invokeUrl: process.env.ENDPOINT,
-  apiKey: process.env.APIKEY
+  endpoint: process.env.ENDPOINT,
+  wrapserver: process.env.SVGENDPOINT,
+  apikey: process.env.APIKEY
 }
 
 var templates = require('./templates/index.js');
@@ -23,7 +24,7 @@ function _success(res, body) {
   return true
 }
 
-function draw (req, res, paper) {
+function draw (snap, req, res) {
   var tpl = templates[req.params.template];
 
   if (! tpl) {
@@ -32,9 +33,9 @@ function draw (req, res, paper) {
   }
 
   options = {
-    url: tpl.resource(config.invokeUrl, req.params),
+    url: tpl.resource(config.endpoint, req.params),
     headers: {
-      'Authorization': config.apiKey
+      'Authorization': config.apikey
     }
   }
 
@@ -49,11 +50,17 @@ function draw (req, res, paper) {
       result = JSON.parse(body);
     }
     catch (err) {
-      console.log(body)
+      console.log(body);
       return _error(res, 'JSON_PARSE_ERROR')
     }
 
-    tpl.render( paper, result );
+    var paper = snap();
+    tpl.render({
+      'config': config, 
+      'paper': paper, 
+      'data': result,
+      'request': request
+    });
     return _success(res, paper.toString())
   }
 
@@ -62,16 +69,21 @@ function draw (req, res, paper) {
 
 function render(req, res) {
 
-  jsdom.env( '', // empty body
-    [], // no external scripts 
-    { src: [ snap_src ] },
-    function (err, window) {
-      var paper = new window.Snap();
-      draw(req, res, paper);
+  jsdom.env({
+    html: '',
+    src: [ snap_src ],
+    done: function (err, window) {
+      // disallow loading external graphics
+      window.Snap.load = undefined;
+      draw(window.Snap, req, res);
       window.close();
+    }
   });
 
-  return res
 }
 
-module.exports = { "handler": render }
+module.exports = {
+  "handler": render,
+  "jsdom": jsdom,
+  "request": request
+}
