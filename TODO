@@ -1,12 +1,11 @@
-Sat Aug  5 04:23:46 CDT 2017
+Sat Aug  5 11:28:20 CDT 2017
 
 WIP - build bitwrap-editor template
 required to be able to use from express & browserify
 
-FIXME: master build is broken when run on AWS lambda
-
 BACKLOG
 =======
+* TODO: actually return valid svg w/ error message instead of text
 * Add more docs about how this library is used
   * as a NPM module - for bitwrap-ui app to use templates
   * for server-side SVG rendering
